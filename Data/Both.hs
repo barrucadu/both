@@ -11,19 +11,24 @@ import Control.Monad
 import Data.Data
 import Data.Foldable
 import Data.Maybe
-import Data.Monoid
+import Data.Monoid hiding ((<>))
+import Data.Semigroup
 import Data.Traversable
 import GHC.Generics
 
 newtype Both a = Both { getBoth :: Maybe a }
   deriving (Eq, Ord, Read, Show, Data, Typeable, Generic, Generic1, Functor, Applicative, Alternative, Monad, MonadPlus, Foldable, Traversable)
 
--- | The 'mappend' for 'Maybe' is 'Just' if /either/ of the operands
+-- | The '(<>)' for 'Maybe' is 'Just' if /either/ of the operands
 -- are, whereas here /both/ must be.
-instance Monoid a => Monoid (Both a) where
-  mempty = Both $ Just mempty
-  mappend (Both (Just x)) (Both (Just y)) = Both . Just $ x <> y
-  mappend _ _ = Both Nothing
+instance Semigroup a => Semigroup (Both a) where
+  Both (Just x) <> Both (Just y) = Both . Just $ x <> y
+  _ <> _ = Both Nothing
+
+instance (Monoid a, Semigroup a) => Monoid (Both a) where
+  mempty  = Both $ Just mempty
+  mappend = (<>)
+
 
 -- | The 'both' function takes a default value, a function, and a
 -- 'Both' value. If the inner 'Maybe' value is 'Nothing', the function
