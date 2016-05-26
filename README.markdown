@@ -36,4 +36,4 @@ or email (mike@barrucadu.co.uk).
 
 [build-status]: https://travis-ci.org/barrucadu/both.svg?branch=master
 [build-log]:    https://travis-ci.org/barrucadu/both
-[docs]:         https://barrucadu.github.io/both
+[docs]:         https://docs.barrucadu.co.uk/both
