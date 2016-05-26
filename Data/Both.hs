@@ -14,6 +14,7 @@ import Data.Maybe
 import Data.Monoid hiding ((<>))
 import Data.Semigroup
 import Data.Traversable
+import Data.Zero
 import GHC.Generics
 
 newtype Both a = Both { getBoth :: Maybe a }
@@ -29,6 +30,8 @@ instance (Monoid a, Semigroup a) => Monoid (Both a) where
   mempty  = Both $ Just mempty
   mappend = (<>)
 
+instance Semigroup a => Zero (Both a) where
+  zero = Both Nothing
 
 -- | The 'both' function takes a default value, a function, and a
 -- 'Both' value. If the inner 'Maybe' value is 'Nothing', the function
