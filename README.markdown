@@ -1,4 +1,4 @@
-both [![Build Status][build-status]][build-log]
+both
 ====
 
 The Monoid instance for Maybe behaves like so:
@@ -23,9 +23,6 @@ instance Monoid a => Monoid (Both a) where
   mempty = Just mempty
 ~~~~
 
-The documentation of the latest developmental version is
-[available online][docs].
-
 Contributing
 ------------
 
@@ -33,7 +30,3 @@ Bug reports, pull requests, and comments are very welcome!
 
 Feel free to contact me on GitHub, through IRC (#haskell on freenode),
 or email (mike@barrucadu.co.uk).
-
-[build-status]: https://travis-ci.org/barrucadu/both.svg?branch=master
-[build-log]:    https://travis-ci.org/barrucadu/both
-[docs]:         https://docs.barrucadu.co.uk/both
