@@ -1,21 +1,21 @@
-{-# LANGUAGE DeriveDataTypeable         #-}
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE DeriveTraversable          #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DeriveTraversable #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
 
 -- | The 'Both' type and operations. Like 'Maybe', but not.
 module Data.Both where
 
-import Control.Applicative
-import Control.Monad
-import Data.Data
-import Data.Foldable
-import Data.Maybe
-import Data.Monoid hiding ((<>))
-import Data.Semigroup
-import Data.Traversable
-import Data.Zero
-import GHC.Generics
+import           Control.Applicative
+import           Control.Monad
+import           Data.Data
+import           Data.Foldable
+import           Data.Maybe
+import           Data.Monoid         hiding ((<>))
+import           Data.Semigroup
+import           Data.Traversable
+import           Data.Zero
+import           GHC.Generics
 
 newtype Both a = Both { getBoth :: Maybe a }
   deriving (Eq, Ord, Read, Show, Data, Typeable, Generic, Generic1, Functor, Applicative, Alternative, Monad, MonadPlus, Foldable, Traversable)
