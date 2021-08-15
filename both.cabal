@@ -2,7 +2,7 @@
 -- see http://haskell.org/cabal/users-guide/
 
 name:                both
-version:             0.1.1.1
+version:             0.1.1.2
 synopsis:            Like Maybe, but with a different Monoid instance.
 description:
   The Monoid instance for Maybe behaves like so:
@@ -42,7 +42,7 @@ source-repository head
 source-repository this
   type:     git
   location: https://github.com/barrucadu/both.git
-  tag:      0.1.1.1
+  tag:      0.1.1.2
 
 library
   exposed-modules:     Data.Both
